@@ -1,0 +1,108 @@
+{% extends 'staff/index.html' %}
+{% load static %}
+{% block content %}   
+    <div class="page-wrapper">
+      <!-- ============================================================== -->
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="tab">
+            <div class="btn" style="background-color: blue;"><a class="btn" style="color: aliceblue; font-weight: 900;" href="{% url 'Product-insert' %}">+ Add Product</a></div>
+            <div class="btn" style="background-color: yellowgreen;"><a class="btn" style="color: aliceblue; font-weight: 900;" href="{% url 'Product-insert' %}">\ Update</a></div>
+
+            <center><u><h1>PRODUCT INSERTION FORM</h1></u></center>
+            <form method="POST">
+                {% csrf_token %}
+                <lebel for="">Product ID : </lebel>
+                <input type="text" name="product_id" required>
+
+                <lebel for="">Product Group : </lebel>
+                <input type="text" name="group" required>
+
+                <lebel for="">Product Item Type : </lebel>
+                <input type="text" name="item_type" required>
+
+                <lebel for="">Supplier Name : </lebel>
+                <input type="text" name="supplier" required>
+
+                <lebel for="">Manufacturer : </lebel>
+                <input type="text" name="manufacturer" required>
+
+                <lebel for="">Product Title : </lebel>
+                <input type="text" name="title" required>
+        
+                <lebel for="">Product Barcode : </lebel>
+                <input type="text" name="barcode" required>
+
+                <lebel for="">Item Size : </lebel>
+                <input type="text" name="item_size" required>
+
+                <lebel for="">Item Color : </lebel>
+                <input type="text" name="item_color" required>
+
+                <lebel for="">Product Purchase Price : </lebel>
+                <input type="text" name="purchase_price" required>
+
+                <lebel for="">Product Purchase Tax : </lebel>
+                <input type="text" name="purchase_tax" required>
+        
+                <lebel for="">Product Selling Price : </lebel>
+                <input type="text" name="selling_price" required>
+
+                <lebel for="">Product Selling Tax : </lebel>
+                <input type="text" name="selling_tax" required>
+
+                <lebel for="">Product Discounted Price : </lebel>
+                <input type="text" name="discounted_price" required>
+
+                <label for="">Product Description</label>
+                <input type="text" name="description" required>
+
+                <label for="">Product Brand</label>
+                <input type="text" name="brand" required>
+
+                <label for="">Product Category</label>
+                <select name="category" id="">
+                  <option value="select">Select</option>
+                  <option value="KitchenSteelproduct">KitchenSteelproduct</option>
+                  <option value="Grocery">Grocery</option>
+                  <option value="Vegitables">Vegitables</option>
+                  <option value="FreshFruits">FreshFruits</option>
+                  <option value="Snacks">Snacks</option>
+                  <option value="ColdDrinks">ColdDrinks</option>
+                  <option value="DryfruitsNuts">DryfruitsNuts</option>
+                  <option value="HotDrinks">HotDrinks</option>
+                  <option value="Protins">Protins</option>
+                  <option value="BeautyProducts">BeautyProducts</option>
+                  <option value="Other Home Products">Other Home Products</option>
+                </select>
+                <br>
+
+                <lebel for="">Product Actual MRP (Rs.): </lebel>
+                <input type="text" name="actual_mrp" required>
+
+                <lebel for="">Product PURCHASE DATE: </lebel>
+                <input type="date" name="product_perchase_date" required>
+
+                <lebel for="">EXPIRY DATE: </lebel>
+                <input type="date" name="expiry_date" required>
+
+                <label for="">Product Image</label>
+                <input type="file" name="product_image" accept="image/*" required>
+        
+                <button style="background-color: blue; color: aliceblue;">Save</button>
+                <br> <br>
+                {% if messages %}
+                {% for m in messages %}
+        
+                <h2 style="color:green ;"> {{m}}</h2>
+        
+                {% endfor %}
+                {% endif %}
+            </form>
+         
+          </div>
+      </div>
+          </div>
+        </div>
+{% endblock %}

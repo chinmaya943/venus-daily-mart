@@ -1,0 +1,79 @@
+{% extends 'admin_app/index.html' %}
+{% load static %}
+{% block content %}
+<div class="page-wrapper">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="tab">
+        <div class="btn" style="background-color: blue;"><a class="btn" style="color: aliceblue; font-weight: 900;" href="{% url 'Cu-insert' %}">+ Add Customer</a></div>
+        <div class="btn" style="background-color: yellowgreen;"><a class="btn" style="color: aliceblue; font-weight: 900;" href="{% url 'Cu-insert' %}">\ Update</a></div>
+        <div class="btn" style="background-color: red;"><a class="btn" style="color: aliceblue; font-weight: 900;" href="{% url 'Cu-insert' %}">- Delete Customer</a></div>
+        <div class="btn" style="background-color: red;"><a class="btn" style="color: aliceblue; font-weight: 900;" href="{% url 'Cu-insert' %}">Refresh</a></div>
+        <center><u><h1>CUSTOMER INSERTION FORM</h1></u></center>
+          <form method="POST">
+              {% csrf_token %}
+              <lebel for="">Username : </lebel>
+              <input type="text" name="user" required>
+      
+              <lebel for="">Name : </lebel>
+              <input type="text" name="name" required>
+      
+              <lebel for="">Locality : </lebel>
+              <input type="text" name="locality" required>
+
+              <lebel for="">City : </lebel>
+              <input type="text" name="city" required>
+
+              <label for="">Zipcode :</label>
+              <input type="text" name="zipcode" required>
+
+              <label for="">State :</label>
+              <select name="" id="">
+                <option value="select">Select</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujurat">Gujurat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Assam">Assam</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="West Bengal">West Bengal</option>
+              </select>
+              <br> <br>
+
+              <button style="background-color: blue; color: aliceblue;">Save</button>
+   
+              {% if messages %}
+              {% for m in messages %}
+      
+              <h2 style="color:green ;"> {{m}}</h2>
+      
+              {% endfor %}
+              {% endif %}
+          </form>
+       
+        </div>
+    </div>
+        </div>
+      </div>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'admin_app/index.html' %}
+{% load static %}
+{% block content %}
+    <div class="page-wrapper">
+      <!-- ============================================================== -->
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="tab">
+                <div class="btn" style="background-color: blue;"><a class="btn" style="color: aliceblue; font-weight: 900;" href="{% url 'U-insert' %}">+ Add User</a></div>
+                <div class="btn" style="background-color: yellowgreen;"><a class="btn" style="color: aliceblue; font-weight: 900;" href="{% url 'U-insert' %}">\ Update</a></div>
+                <div class="btn" style="background-color: red;"><a class="btn" style="color: aliceblue; font-weight: 900;" href="{% url 'U-insert' %}">- Delete User</a></div>
+                <div class="btn" style="background-color: red;"><a class="btn" style="color: aliceblue; font-weight: 900;" href="{% url 'U-insert' %}">Refresh</a></div>
+            <center><u><h1>USER INSERTION FORM</h1></u></center>
+              <form method="POST">
+                  {% csrf_token %}
+                    <lebel for="">FIRST NAME : </lebel>
+                    <input type="text" name="first_name" required>
+
+                    <lebel for="">LAST NAME : </lebel>
+                    <input type="text" name="last_name" required>
+
+                    <lebel for="">EMAIL ID : </lebel>
+                    <input type="email" name="email" required>
+
+                    <lebel for="">Username : </lebel>
+                    <input type="text" name="username" required>
+
+                    <lebel for="">Password : </lebel>
+                    <input type="password" name="password" required>
+
+                    <label for="">Confirm Password (again) : </label>
+                    <input type="password" name="confirm_password" required>
+
+                    <lebel for="">Staff Category : </lebel>
+                    <select name="staff_category" id="">
+                      <option value="select">Select</option>
+                      <option value="Staff">Staff</option>
+                      <option value="Cashier">Cashier</option>
+                    </select>
+                    <br> <br>
+                    <button style="background-color: blue; color: aliceblue;">Save</button>
+
+                  {% if messages %}
+                  {% for m in messages %}
+          
+                  <h2 style="color:green ;"> {{m}}</h2>
+          
+                  {% endfor %}
+                  {% endif %}
+              </form>        
+            </div>
+          </div>
+        </div>
+    </div>
+{% endblock %}

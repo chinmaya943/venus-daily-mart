@@ -1,0 +1,39 @@
+{% extends 'admin_app/index.html' %}
+{% load static %}
+{% block content %} 
+  <div class="page-wrapper">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="tab">
+            <div class="btn" style="background-color: blue;"><a class="btn" style="color: aliceblue; font-weight: 900;" href="{% url 'Ca-insert' %}">+ Add Cart</a></div>
+            <div class="btn" style="background-color: yellowgreen;"><a class="btn" style="color: aliceblue; font-weight: 900;" href="{% url 'Ca-insert' %}">\ Update</a></div>
+            <div class="btn" style="background-color: red;"><a class="btn" style="color: aliceblue; font-weight: 900;" href="{% url 'Ca-insert' %}">- Delete Cart</a></div>
+            <div class="btn" style="background-color: red;"><a class="btn" style="color: aliceblue; font-weight: 900;" href="{% url 'Ca-insert' %}">Refresh</a></div>
+            <center><u><h1>CART INSERTION FORM</h1></u></center>
+            <form method="POST">
+                {% csrf_token %}
+                <lebel for="">User : </lebel>
+                <input type="text" name="user" required>
+
+                <lebel for="">Product : </lebel>
+                <input type="text" name="product" required>
+
+                <lebel for="">Quantity : </lebel>
+                <input type="text" name="quantity" required>
+                <br> <br>
+                <button style="background-color: blue; color: aliceblue;">Save</button>
+
+                {% if messages %}
+                {% for m in messages %}
+        
+                <h2 style="color:green ;"> {{m}}</h2>
+        
+                {% endfor %}
+                {% endif %}
+            </form>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
